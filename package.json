@@ -1,6 +1,6 @@
 {
   "name": "module-unique",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "a patch for node.js which avoids loading the same module more than once",
   "main": "index.js",
   "scripts": {
