@@ -16,7 +16,37 @@ add the code before your own code, must before or it won't work!!!
 ```js
 require('module-unique').init();
 ```
+here is a example code
+```
+#!/usr/bin/env node
+'use strict';
 
+var unique = require('module-unique');
+unique.init();
+
+var app = require('../app'),
+    logger = require('logger'),
+    graceful = require('graceful');
+
+app.set('port', process.env.PORT);
+
+var server = app.listen(app.get('port'), function() {
+    logger.info('server listening on port ' + server.address().port);
+});
+
+graceful({
+    server: server,
+    killTimeout: 30 * 1000,
+    error: function(err, throwErrorCount) {
+        if (err.message) {
+            err.message +=
+                ' (uncaughtException throw ' + throwErrorCount +
+                ' times on pid:' + process.pid + ')';
+        }
+        logger.error(err);
+    }
+});
+```
 
 memory used about 30% above in my own project!
 #### before using module-unique 
