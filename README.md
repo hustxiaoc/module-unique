@@ -48,7 +48,7 @@ graceful({
 });
 ```
 
-memory used about 30% above in my own project!
+memory saved  about 30% above in my own project!
 #### before using module-unique 
 ![http://gtms03.alicdn.com/tps/i3/TB1nU9QGFXXXXb4XFXXDeGnJXXX-886-144.png](http://gtms03.alicdn.com/tps/i3/TB1nU9QGFXXXXb4XFXXDeGnJXXX-886-144.png)
 
