@@ -16,7 +16,7 @@ add the code before your own code, must before or it won't work!!!
 ```js
 require('module-unique').init();
 ```
-here is a example code
+here is an example code
 ```
 #!/usr/bin/env node
 'use strict';
