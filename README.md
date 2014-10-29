@@ -5,8 +5,8 @@ a patch for node.js which avoids loading the same module more than once
 
 ### why?
 In a large project developed with node.Js, some modules are used frequently, let's say underscore or lodash.
-module A is depended on ```underscore```,and module B is depended on it too, they are depended on the same version. 
-So module underscore is loaded more than once , right? And that may cost a lot memory, very unnecessary .So why don't 
+module A  depends on ```underscore```,and module B depends on it too, now they  depend on the same module with same version. 
+So module underscore is loaded more than once , right? And that will cost a lot memory, what a waste! .So why don't 
 we set the cache for the same module with the same version. Well , module-unique can help you solve this!
 
 ### How to use
