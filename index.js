@@ -47,20 +47,15 @@ function tryPackage(requestPath, exts) {
 
   if (!(pkg && pkg.main)) return false;
 
-  var name = pkg.name,
-      version = pkg.version,
+  var resolved = pkg['_resolved'],
       main = pkg.main;
 
-  var cache = moduleCache[name];
-  if(!cache){
-    cache = moduleCache[name] = {};
-  }
+  var filename;
 
-  var filename =  cache[version];
-
-  if(!filename) {
-     filename = path.resolve(requestPath, main);
-     cache[version] = filename;
+  if(resolved) {
+    filename =  moduleCache[resolved] || (moduleCache[resolved] = path.resolve(requestPath, main));
+  }else{
+    filename = path.resolve(requestPath, main);
   }
 
   return tryFile(filename) || tryExtensions(filename, exts) ||
